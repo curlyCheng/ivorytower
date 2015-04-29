@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<title></title>
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/common.css">
+	<link rel="stylesheet" href="styles/lib.css">
+	<link rel="stylesheet" href="styles/public.css">
+
+</head>
+<body>
+	<div class="header bg1">
+		<div class="wrap">
+			<a class="top-link-logo tdn">象牙塔</a>
+			<div id="nav" class="top-nav">
+				<ul>
+					<li><a href="./project/index.html" class="tdn top-link">项目</a></li>
+					<li><a href="./company/index.html" class="tdn top-link">企业</a></li>
+					<li><a href="./user/index.html" class="tdn top-link">榜单</a></li>
+					<li><a href="./show/index.html" class="tdn top-link">晒单</a></li>	
+				</ul>
+			</div>
+			<div class="top-search">
+				<form action="">
+					<input type="text" placeholder="搜索项目或企业" autocomplete="off">
+					
+				<button class="btn h34">搜索</button>
+				</form>
+			</div>
+			<div class="top-opts">
+				<ul>
+					<li><a href="#signin" class="tdn top-link">登录</a></li>
+					<li><a href="#signup" class="tdn top-link">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper h100p bg1">
+		<div class="wrap" id="page-wrap">
+			<div class="form-wrap pt60" data-page="signin">
+				<div class="form-title">
+					<h2>用户登录</h2>
+					<a href="#signup" class="tdn linkto r">注册</a>
+				</div>
+				<div class="form-view">
+					<form action="">
+							<input type="text" placeholder="请输入邮箱">	
+							<input type="password" placeholder="请输入密码">	
+					</form>	
+				</div>
+				<button class="btn w100p h38">登录</button>
+				<a href="" class="tdn linkto f12 fs mt5 r">忘记密码</a>
+			</div>
+
+			<div class="form-wrap pt60 dn" data-page="signup" id="signup">
+				<div class="form-title">
+					<h2>注册账号</h2>
+					<a href="#signin" class="tdn linkto r">登录</a>
+				</div>
+				<div class="tab-nav" id="tab-nav">
+					<ul>
+						<li><a data-tab="student" href="javascript:;" class="tdn linkto n role-on">学生</a></li>
+						<li><a data-tab="company" href="javascript:;" class="tdn linkto n">企业</a></li>
+						<li><a data-tab="teacher" href="javascript:;" class="tdn linkto n">教师</a></li>
+					</ul>
+				</div>
+				<div class="form-view" data-role="student">
+					<form action="">
+							<input type="text" placeholder="用户名" autocomplete="off">
+							<input type="text" placeholder="请输入邮箱" autocomplete="off">	
+							<input type="text" placeholder="学历" autocomplete="off">
+							<input type="text" placeholder="专业" autocomplete="off">	
+							<input type="password" placeholder="请输入密码" autocomplete="off">
+					</form>	
+				</div>
+				<div class="form-view dn" data-role="company">
+					<form action="">
+							<input type="text" placeholder="企业名称" autocomplete="off">
+							<input type="text" placeholder="企业邮箱" autocomplete="off">	
+							<input type="text" placeholder="联系方式" autocomplete="off">
+							<input type="text" placeholder="企业地址" autocomplete="off">	
+							<input type="password" placeholder="请输入密码" autocomplete="off">
+					</form>	
+				</div>
+				<div class="form-view dn" data-role="company">
+					<form action="">
+							<input type="text" placeholder="真实姓名" autocomplete="off">
+							<input type="text" placeholder="学校名称" autocomplete="off">	
+							<input type="text" placeholder="学校个人邮箱" autocomplete="off">	
+							<input type="password" placeholder="请输入密码" autocomplete="off">
+					</form>	
+				</div>
+				<button class="btn w100p h38">注册</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="lib/sea.js"></script>
+	<script>
+		location.hash = "signin";
+		seajs.use("./scripts/main",function(obj){
+			obj.tab('signup','tab','role');
+		});
+
+	</script>
+</body>
+</html>
