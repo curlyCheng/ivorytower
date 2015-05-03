@@ -26,14 +26,13 @@
 			<div class="top-search">
 				<form action="">
 					<input type="text" placeholder="搜索项目或企业" autocomplete="off">
-					
-				<button class="btn h34">搜索</button>
+					<button class="btn h34">搜索</button>
 				</form>
 			</div>
 			<div class="top-opts">
 				<ul>
-					<li><a href="#signin" class="tdn top-link">登录</a></li>
-					<li><a href="#signup" class="tdn top-link">注册</a></li>
+					<li><a id="clickin" href="login.html" class="tdn top-link">登录</a></li>
+					<li><a id="clickreg" href="index.html#signup" class="tdn top-link">注册</a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,7 +41,7 @@
 		<div class="wrap" id="page-wrap">
 			<div class="form-wrap pt60" data-page="signin">
 				<div class="form-title">
-					<h2>用户登录</h2>
+					<h2 class="fcw">用户登录</h2>
 					<a href="#signup" class="tdn linkto r">注册</a>
 				</div>
 				<div class="form-view">
@@ -57,7 +56,7 @@
 
 			<div class="form-wrap pt60 dn" data-page="signup" id="signup">
 				<div class="form-title">
-					<h2>注册账号</h2>
+					<h2 class="fcw">注册账号</h2>
 					<a href="#signin" class="tdn linkto r">登录</a>
 				</div>
 				<div class="tab-nav" id="tab-nav">
@@ -101,9 +100,11 @@
 
 	<script src="lib/sea.js"></script>
 	<script>
-		location.hash = "signin";
 		seajs.use("./scripts/main",function(obj){
+			if(window.location.hash == "")
+						window.location.hash = "signin"
 			obj.tab('signup','tab','role');
+			obj.popup(document.getElementById('clickin'));
 		});
 
 	</script>

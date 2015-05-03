@@ -40,8 +40,7 @@
 .top-link{color: #F2F4F5; font-size:14px; font-weight:bold;}.top-link:hover{color:#fff;}
 
 .top-search{
-	position:relative;
-	float: left;
+	display: inline-block;
 	margin-left: 24px;
 }
 
@@ -54,7 +53,6 @@
 	height: 20px;
 	width: 50%;
 }
-
 
 .top-opts{
 	float: right;
@@ -73,11 +71,10 @@
 	margin-bottom: 10px;
 }
 
-.form-title h2{
+h2{
 	text-align: left;
 	font-family:  宋体;
 	font-weight: normal;
-	color: #fff;
 	font-size: 18px;
 	display: inline-block;
 }
@@ -186,18 +183,19 @@
 .overlayout{
 	display: none;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	background: #000;
 	opacity: 0.3;
+	z-index: 30
 }
 .window{
 	display: none;
 	position: fixed;
 	left: 50%;
-	z-index: 2;
+	z-index: 40;
 }
 .winBar{
 	font-size: 12px;
@@ -218,7 +216,18 @@
 	cursor: pointer;
 }
 
+/*list---------------------------*/
+.list li{
+	padding: 10px  0 0 0;
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: bold;
+}
 
+.list li .media{
+	overflow: hidden;
+	display: inline;
+}
 /*btn and a----------------------------*/
 a.role-on{
 	background: rgba(255,255,255,.15);
@@ -259,6 +268,10 @@ a.role-on{
 	border: 2px solid #ccc;
 }
 
+.fig{
+	width: 50px;
+	height: 50px;
+}
 .linkto{
 	color: #ccc;
 }.linkto:hover{color:#fff;}
@@ -266,3 +279,25 @@ a.role-on{
 .linkto a:hover{
 	font-weight: bold;
 }
+.sign{
+	padding: 0 5px;
+	background-color: #0C73C2;
+	border-radius: 5px;
+	color: #fff;
+	vertical-align: middle;
+}
+.sign2{background-color: #ddd;color:#666;}
+/*textarea,input---------------------------------------------------*/
+textarea{
+	resize: none;
+	font-size: 12px;
+	color: #333;
+	padding: 6px;
+	width: 100%;
+	margin-right: -20px;
+	border: 1px solid #CDCDCD;
+	border-radius: 2px;
+	line-height: 19px;
+	overflow: hidden;
+}
+

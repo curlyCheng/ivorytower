@@ -32,8 +32,8 @@
 			</div>
 			<div class="top-opts">
 				<ul>
-					<li><a href="#signin" class="tdn top-link">登录</a></li>
-					<li><a href="#signup" class="tdn top-link">注册</a></li>
+					<li><a id="clickin" href="../login.html" class="tdn top-link">登录</a></li>
+					<li><a id="clickreg" href="../index.html#signup" class="tdn top-link">注册</a></li>
 				</ul>
 			</div>
 		</div>
@@ -54,9 +54,9 @@
 				       网易杭州研究中心成立于2006年6月。作为网易产品研发中心，目前拥有社区及生活服务类、客户端类、互动娱乐类等10款互联网新型产品。
 				社区类产品包括网易博客和网易相册。网易博客自2006年9月1日正式上线以来，整合资源，不断创新，为用户提供了个性化网络生活平台，截止2010年6月已拥有超过1.2亿注册用户。未来，网易博客将继续致力于成为最方便易用、最具价值的网络个人表达和用户交流分享生活平台。网易相册自2003年推出以来一直是国内最具知名度、拥有最大用户群的免费网
 			</div>
-			<div class="row-item mt10 l mb10">
-				<div class="mb10">进行中的项目</div>
-				<div class="grid-container">
+			<div class="row-item mt10 mb10">
+				<div class="mb10">	<b>进行中的项目</b></div>
+				<div class="grid-container fix">
 					<div class="grid-item">
 						<div class="item-top">
 							<a href="">
@@ -64,7 +64,6 @@
 							</a>
 						</div>
 						<div class="item-bottom fc tdn">
-
 							<div class="item-line">
 								<span class="left">即将开始</span>
 								<span class="fc">4月16——5月1日</span>
@@ -78,17 +77,108 @@
 				</div>
 			</div>
 			<div class="row-item cl mb10">
-				<div class="mb10">企业评价</div>
+				<div class="mb10"><b>企业评价</b></div>
+				<div class="cmmt bb1 pb10 mb20">
+					<div class="mr10 l vm">
+						<img class="fig" src="../images/sodagreen.jpeg" alt="">
+					</div>
+					<div class="ml60 rel mr20">
+						<textarea name="commit" id="commit" class="h38" maxlength="140"></textarea>
+						<div class="tr mt5">
+							<span class="fc f12 mr5">140</span>
+							<button class="btn f12">评论</button>
+						</div>
+					</div>					
+				</div>
+				<div class="cmmtarea" id="cmmtarea">
+					<div class="cmmt-item fix pb10 mb20 bb2">
+						<div class="mr10 l vm">
+						<a href="">
+							<img class="fig" src="../images/sodagreen.jpeg" alt="">
+						</a>
+						</div>
+						<div class="ml60 rel mr20">
+							<div >
+								<a href="" class="fc1 tdn">sodagreen</a>
+								：这评论，吓尿了，，，这评论，吓尿了，，，这评论，吓尿了，，，这评论，吓尿了，，，
+							</div>
+							<div class="cmmt-que">
+								<a href="" class="fc1 tdn">-M80-</a>
+								：个人认为很做作，个人意见
+							</div>
+							<div class="tr mt5">
+								<span class="fc mr10">3月23日 18:21</span>
+								<a href="javascript:void(0);" class="reply fc tdn f12">回复</a>
+							</div>
+
+						</div>	
+					</div>	
+
+					<div class="cmmt-item fix pb10 mb20 bb2">
+						<div class="mr10 l vm">
+						<a href="">
+							<img class="fig" src="../images/sodagreen.jpeg" alt="">
+						</a>
+						</div>
+						<div class="ml60 rel mr20">
+							<div >
+								<a href="" class="fc1 tdn">sodagreen</a>
+								：这评论，吓尿了，，，这评论，吓尿了，，，这评论，吓尿了，，，这评论，吓尿了，，，
+							</div>
+							<div class="cmmt-que">
+								<a href="" class="fc1 tdn">-M80-</a>
+								：个人认为很做作，个人意见
+							</div>
+							<div class="tr mt5">
+								<span class="fc mr10">3月23日 18:21</span>
+								<a href="javascript:void(0);" class="reply fc tdn f12">回复</a>
+							</div>
+
+						</div>	
+					</div>	
+
+				</div>
 			</div>
 			
 		</div>
 	</div>
 	<script src="../lib/sea.js"></script>
 	<script>
-
-		seajs.use("../scripts/main",function(obj){
-
+		seajs.use(["../scripts/main", "../scripts/util"],function(obj,util){
+			obj.popup(document.getElementById('clickin'));
+			$util = util;
 		});
+
+		window.onload = function(){
+			reply();
+		}
+
+		function reply(){
+			var btns = $util.getElementsByClassName("cmmtarea","reply");
+			var show = false;
+			for(var i=0, len=btns.length;i<len;i++){
+				btns[i].onclick = function(){
+					if(document.getElementById("replyarea")  != undefined){
+						var replyarea = 	document.getElementById("replyarea");
+						if(this.parentNode.parentNode === replyarea.parentNode)
+							show = true;
+						var iner = replyarea.parentNode.removeChild(replyarea);
+					}
+					else{
+						html = '<div class="mr20"><textarea name="" id="" class="h20" maxlength="140"></textarea><div class="tr mt5"><span class="fc f12 mr5">140</span><button class="btn f12">评论</button></div></div>';
+						var iner = $util.elementCreate("div",{class:"cmmt-iner mt10"});
+						iner.innerHTML = html;
+						iner.id = "replyarea";
+					}
+					if(show == false)
+						this.parentNode.parentNode.appendChild(iner);
+					else
+						show = false;	
+				};
+			}	
+		}
+
+
 
 	</script>
 </body>

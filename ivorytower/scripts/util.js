@@ -1,5 +1,4 @@
 define(function(require, exports, module) {
-
 	/**
 	 * [Array.prototype.indexOf for ie]
 	 * @param  {[type]} !Array.prototype.indexOf [description]
@@ -131,5 +130,6 @@ define(function(require, exports, module) {
 		}
 		return ret;
 	}
+
 
 });

@@ -1,6 +1,6 @@
 define(function(require,exports,module){
 	var tab = require('./tab');
-	var flbox = require("./window"),
+	var flbox = require("./window"),	
 		url = require("./urlRandom");
 	var carousel = require('./carousel');
 	exports.tab = tab.tab;

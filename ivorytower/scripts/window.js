@@ -2,8 +2,7 @@ define(function(require,exports,module){
 	var util = require('./util');
 	var overlayout = require('./overlayout');
 	var $ajax = require('./ajax');
-
-
+	
 	var eleWin = util.elementCreate("div",{
 		class: "window"
 	});
@@ -39,7 +38,7 @@ define(function(require,exports,module){
 			});
 		},
 		position: function(){
-			eleWin.style.display = "block";
+			util.show(eleWin);
 			var width = eleWin.clientWidth;
 			var height = eleWin.clientHeight;
 			overlay.show();
@@ -49,7 +48,7 @@ define(function(require,exports,module){
 		},
 		close: function(){
 			overlay.hide();
-			document.body.removeChild(eleWin);
+			util.hide(eleWin);
 			eleBody.innerHTML = "";
 		}
 	}

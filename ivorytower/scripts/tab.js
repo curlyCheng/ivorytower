@@ -14,6 +14,7 @@ define(function(require, exports, module) {
 
 	function pageChange() {
 		var pageId = location.hash.substring(1);
+		if(!pageId) pageId = "singin";
 		pages = getElementsByData("page-wrap", "page");
 		for (var i = 0, len = pages.length; i < len; i++) {
 
