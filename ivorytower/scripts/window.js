@@ -22,7 +22,6 @@ define(function(require,exports,module){
 	eleWin.appendChild(eleBody);
 	document.body.appendChild(eleWin);
 
-	eleBar.innerHTML = "登录";
 	eleClose.innerHTML = "关闭";
 	eleClose.onclick = function(){
 		flbox.close();
@@ -30,8 +29,9 @@ define(function(require,exports,module){
 	};
 	
 	var flbox = {
-		open: function(url){
+		open: function(url,title){
 			var box =  flbox;
+			eleBar.innerHTML = title;
 			$ajax.get(url,function(html){
 				eleBody.innerHTML = html;
 				flbox.position();
@@ -43,7 +43,6 @@ define(function(require,exports,module){
 			var height = eleWin.clientHeight;
 			overlay.show();
 			eleWin.style.marginLeft = "-"+(width/2)+"px";
-			
 			eleWin.style.top = (screen.availHeight-height-100)/2 + "px";
 		},
 		close: function(){

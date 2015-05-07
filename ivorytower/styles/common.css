@@ -95,7 +95,6 @@ h2{
 	float: left;
 	width: 32%;
 	text-align: center;
-	margin-bottom: 10px;
 }
 
 .tab-nav li a{
@@ -233,7 +232,9 @@ a.role-on{
 	background: rgba(255,255,255,.15);
 	color: #fff;
 }
-
+.role-on{
+	border-bottom: 2px solid #2af;
+}
 .btn{
 	background: #0E7BEF;
 	color: #fff;
@@ -245,6 +246,11 @@ a.role-on{
 .icon{
 	text-align: center;
 	vertical-align: middle;
+	cursor: pointer;
+}
+.icon10{
+	width: 10px;
+	height: 10px;
 }
 .icon16{
 	width: 16px;
@@ -261,7 +267,9 @@ a.role-on{
 	height: 36px;
 	border: 2px solid #ccc;
 }
-
+.icon64{
+	width: 64px;
+	height: 64px;}
 .icon100{
 	width: 100px;
 	height: 100px;
@@ -296,8 +304,105 @@ textarea{
 	width: 100%;
 	margin-right: -20px;
 	border: 1px solid #CDCDCD;
-	border-radius: 2px;
+	border-radius: 4px;
 	line-height: 19px;
 	overflow: hidden;
 }
+input{
+	padding: 4px;
+	height: 20px;
+	border: 1px solid #CDCDCD;
+	border-radius: 4px;
+}
+/*timeline----------------------------------------------------------*/
+.line{
+	display: inline-block;
+	border-bottom: 2px solid #272636;
+	width: 24%;
+	position: relative;
+	top: -18px;
+}
+.line-finished{
+	border-bottom: 2px solid #56abe4;	
+}
+.line-unfinished{
+	border-bottom:  2px solid #a9b7b7;
+}
 
+.step{
+	display: inline-block;
+}
+
+.history-date {
+    overflow: hidden;
+    position: relative;
+}
+.history-date ul li {
+    padding-bottom: 50px;
+ }
+ li.bounceInDown{
+ 	    background: url("../fonts/iconfont-circle26.png") no-repeat scroll 180px 10px transparent;
+ }
+.history-date ul li h3 {
+    float: left;
+    width: 168px;
+    text-align: right;
+    padding-right: 28px;
+    color: #C3C3C3;
+    font: 18px/16px Arial;
+  }
+ .history-date ul li h3 {
+    color: #086ED5;
+}
+
+.history-date ul li h3 span {
+    display: block;
+    color: #A4A4A4;
+    font-size: 12px;
+}
+
+.history-date ul li dl {
+    float: left;
+    padding-left: 41px;
+
+    font-family: 微软雅黑;
+    }
+.history-date ul li dl dt span {
+    display: block;
+    color: #787878;
+    font-size: 12px;
+}
+
+.history-date ul li dl dt {
+    font: 20px/22px 微软雅黑;
+    color: #737373;
+}
+
+.bounce h3{
+	border-right: 2px solid #56abe4;;
+	height: 50px;
+}
+
+.folder{
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: center;
+	display: inline-block;
+}
+
+.layout{
+	position: absolute;	
+
+	width: 200px;
+	border:1px solid #ccc;
+	background: #fafafa;
+}
+
+.layout .head{
+	height: 50px;
+	background: #eee;
+	color: #333;
+	line-height: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+}

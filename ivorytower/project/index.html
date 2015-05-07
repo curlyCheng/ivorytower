@@ -32,7 +32,8 @@
 			</div>
 			<div class="top-opts">
 				<ul>
-					<li><a id="clickin" href="login.html" class="tdn top-link">登录</a></li>
+					<li class="top-link cur mr10" id="msg-btn">消息</li>	
+					<li><a id="clickin" href="../login.html" class="tdn top-link">登录</a></li>
 					<li><a id="clickreg" href="../index.html#signup" class="tdn top-link">注册</a></li>
 				</ul>
 			</div>
@@ -40,6 +41,32 @@
 	</div>
 
 	<div class="wrapper">
+		<div class="layout z3 vh" style="top: -5px;right: 200px;height:300px" id="msg-layout">
+			<div class="head bb1 fix">
+				<ul class="tab-nav cur" id="msg-tabs">
+					<li data-tab="message">通知</li>
+					<li data-tab="chat">聊天</li>
+					<li data-tab="invite">邀请</li>
+				</ul>
+			</div>
+			<div id="msg-body">
+				<div data-role="message">
+					<div class="bb1 p10">
+						<a href="" class="fc1 tdn">设计中国项目1</a>已经对你做出评价 <a href="" class="fc1 tdn">查看</a>
+					</div>
+				</div>
+				<div class="dn" data-role="chat">
+					<div class="bb1 p10">
+					<a href="" class="fc1 tdn">设计中国项目2</a>已经对你做出评价 <a href="" class="fc1 tdn">查看</a>
+					</div>
+				</div>
+				<div class="dn" data-role="invite">
+					<div class="bb1 p10">
+					<a href="" class="fc1 tdn">设计中国项目3</a>已经对你做出评价 <a href="" class="fc1 tdn">查看</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="slide-container" id="slide-container">
 			<div class="slide-show" id="slide-show">
 				<ul>
@@ -53,8 +80,8 @@
 				</ul>
 			</div>
 			<div class="slide-wrapper">
-				<a class="ctrl-slide prev" id="prev-btn"><i class="iconfont">&#xe628;</i></a>
-				<a class="ctrl-slide next" id="next-btn"><i class="iconfont">&#xe642;</i></a>
+				<a class="ctrl-slide prev" id="prev-btn"><i class="iconfont f28">&#xe628;</i></a>
+				<a class="ctrl-slide next" id="next-btn"><i class="iconfont f28">&#xe642;</i></a>
 			</div>
 			<div class="slide-box" id="slide-box">
 				<ul>
@@ -67,34 +94,44 @@
 			</div>
 		</div>
 		<div class="wrap mt30">
-		<div class="grid-container fix">
-				<div class="grid-item">
-					<div class="item-top">
-						<a href="about.html">
-						<img src="../images/img5.jpg" alt="">
-						</a>
+			<div class="grid-container fix">
+					<div class="grid-item">
+						<div class="item-top">
+							<a href="about.html">
+							<img src="../images/img5.jpg" alt="">
+							</a>
+						</div>
+						<div class="item-bottom fc tdn">
+							<div class="item-line">
+								<a href="../company/about.html" class="left"><img  class="icon icon36 circle" src="../images/img1.jpg" alt=""></a>
+								<span class="linkto"><a href="../company/about.html">网易网络有限公司</a></span>
+							</div>
+							<div class="item-line">
+								<span class="left">即将开始</span>
+								<span class="fc">4月16——5月1日</span>
+							</div>
+							<div class="item-line">
+								<span class="left">普通</span>
+								<span class="fc">已有<i>123</i>人参加</span>
+							</div>
+						</div>
 					</div>
-					<div class="item-bottom fc tdn">
-						<div class="item-line">
-							<a href="../company/about.html" class="left"><img  class="icon icon36 circle" src="../images/img1.jpg" alt=""></a>
-							<span class="linkto"><a href="../company/about.html">网易网络有限公司</a></span>
-						</div>
-						<div class="item-line">
-							<span class="left">即将开始</span>
-							<span class="fc">4月16——5月1日</span>
-						</div>
-						<div class="item-line">
-							<span class="left">普通</span>
-							<span class="fc">已有<i>123</i>人参加</span>
+				<div class="ml100p rel" id="sidearea">
+					<div class="layout z2 vh" id="layout" style="top:-5px; right:-50px;">
+						<div class="head">筛选</div>
+						<div class="m10 lh34 tc">
+							<div>类别<input type="text" class="w100 ml10"></div> 
+							<div>难度<input type="text" class="w100 ml10 "></div> 
+							<div>状态<input type="text" class="w100 ml10"></div>
+							<button class="btn w100p h34">确定</button>
 						</div>
 					</div>
-				</div>
-			<div class="ml100p">
-				<div class="icon icon36 mb5 circle">
-					<i>筛选</i>
-				</div>
-				<div class="icon icon36">
-					<i>TOP</i>
+					<div class="icon icon36 mb5 bg2 circle z3 rel" id="filter-btn">
+						<img class="icon24 bn mt5" src="../fonts/iconfont-filter.png" alt="">
+					</div>
+					<div class="icon icon36 bg2" id="top-btn">
+						<img class="icon24 bn mt5" src="../fonts/iconfont-top.png" alt="">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -102,10 +139,29 @@
 	<script src="../lib/sea.js"></script>
 	<script>
 		var width = document.body.clientWidth;
+		var tab;
+		var toggle;
 		seajs.use("../scripts/main",function(obj){
+			obj.popup(document.getElementById('clickin'));
 			obj.carousel(width,3000,1500);
+			toggle = obj.util.toggle;
+			tab = obj.tab("msg-layout","tab","role");
 		});
-
+	</script>
+	<script>
+	window.onload = function(){
+		var 	top;
+		var sidearea = document.getElementById("sidearea");
+		toggle("filter-btn","layout");
+		toggle("msg-btn","msg-layout");
+		document.onscroll = function(){
+			top = document.documentElement.scrollTop || document.body.scrollTop;
+			sidearea.style.top = top+"px";
+		}
+		document.getElementById("top-btn").onclick = function(){
+				sidearea.style.top = document.documentElement.scrollTop = document.body.scrollTop = 0;
+		}
+	}		
 	</script>
 </body>
 </html>

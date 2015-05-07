@@ -4,44 +4,39 @@ define(function(require, exports, module) {
 	 * @param  {[type]} !Array.prototype.indexOf [description]
 	 * @return {[type]}                          [description]
 	 */
-	if (!Array.prototype.indexOf){
-  		Array.prototype.indexOf = function(elt /*, from*/){
-	    var len = this.length >>> 0;
-	    var from = Number(arguments[1]) || 0;
-	    from = (from < 0)
-	         ? Math.ceil(from)
-	         : Math.floor(from);
-	    if (from < 0)
-	      from += len;
-	    for (; from < len; from++)
-	    {
-	      if (from in this &&
-	          this[from] === elt)
-	        return from;
-	    }
-	    return -1;
-	  };
+	if (!Array.prototype.indexOf) {
+		Array.prototype.indexOf = function(elt /*, from*/ ) {
+			var len = this.length >>> 0;
+			var from = Number(arguments[1]) || 0;
+			from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+			if (from < 0)
+				from += len;
+			for (; from < len; from++) {
+				if (from in this &&
+					this[from] === elt)
+					return from;
+			}
+			return -1;
+		};
 	}
 
-	exports.elementCreate = function(tagName, attr)
-	{
+	exports.elementCreate = function(tagName, attr) {
 		var element = null;
-		if(typeof tagName === "string")
-		{
+		if (typeof tagName === "string") {
 			element = document.createElement(tagName);
-			
-			if(typeof attr === "object") { 
+
+			if (typeof attr === "object") {
 				var key, style;
-				for(key in attr){
-					if(key === "styles" && typeof attr[key] === "object"){
-						for(style in attr[key]) {
+				for (key in attr) {
+					if (key === "styles" && typeof attr[key] === "object") {
+						for (style in attr[key]) {
 							element.style[style] = attr[key][style];
-							if(style == "opacity" && window.innerWidth+"" == "undefined")
-								element.style.filter = "alpha(opacity=" + (attr[key][style]*100) + ")";
+							if (style == "opacity" && window.innerWidth + "" == "undefined")
+								element.style.filter = "alpha(opacity=" + (attr[key][style] * 100) + ")";
 						}
 					}
 				}
-				if(key == "class")
+				if (key == "class")
 					element.className = attr[key];
 				else
 					element[key] = attr[key];
@@ -74,11 +69,11 @@ define(function(require, exports, module) {
 
 	/**
 	 * [addClass description]
-	 * 
+	 *
 	 * @param {[Object]} obj       [description]
 	 * @param {[string]} classname [description]
 	 */
-	exports.addClass= function(obj, classname) {
+	exports.addClass = function(obj, classname) {
 		var objClass = obj.className;
 		obj.className = objClass + ' ' + classname;
 		return obj;
@@ -131,5 +126,19 @@ define(function(require, exports, module) {
 		return ret;
 	}
 
+	exports.toggle = function(handler, target) {
+		var layoutShow = false;
+		if (document.getElementById(handler) === null) return
+		document.getElementById(handler).onclick = function() {
 
+			var layout = document.getElementById(target);
+			if (layoutShow) {
+				layout.style.visibility = "hidden";
+				layoutShow = false;
+			} else {
+				layout.style.visibility = "visible";
+				layoutShow = true;
+			}
+		}
+	}
 });

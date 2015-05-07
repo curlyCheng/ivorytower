@@ -88,19 +88,15 @@
 	display: inline-block;
 }
 
-.column3>div{
-	width: 30%;
-	display: inline-block;
-}
 .column73 .left{
 	position: absolute;
 	padding-right: 2%;
 	border-right: 1px solid #ccc;
-	width:56%;
+	width:50%;
 }
 
 .column73 .right{
-	position: relative;
+
 	margin-left: 75%;
 }
 
@@ -129,18 +125,21 @@
 }
 
 .sidebar{
-	position: relative;
+	position: fixed;
 	left: 0;
 	top: 0;
+	z-index: -1;
 	width: 16%;
 	display: inline-block;
+	height: 100%;
+	border-right: 1px solid #ccc;
+
 }
 .content{
 	position: absolute;
 	top: 0;
 	left: 16%;
-	border-left: 1px solid #ccc;
-	height: 100%;	
+	height: 100%;
 }
 
 .side-nav li{
@@ -148,13 +147,28 @@
 	border-bottom: 1px solid #ccc;
 }
 
-.side-nav li a{
+.side-nav a{
 	color: #666;
 }
-.side-nav li a:hover{
+.side-nav a:hover{
 	font-weight: bold;
 }
 .nav-active{
 	font-weight: bold;
 	color: #333;
+}
+
+.form-area td{
+	height: 28px;
+	text-align: right;
+	padding: 4px;
+	width: 100px;
+}
+
+.form-area td input{
+	padding: 6px;
+}
+
+.form-area td textarea{
+	width: 400px;
 }

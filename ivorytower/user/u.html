@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="../fonts/iconfont.css">
 </head>
 <body>
-	<div class="header">
+	<div class="header" id="header">
 		<div class="wrap">
 			<a class="top-link-logo tdn">象牙塔</a>
 			<div id="nav" class="top-nav">
@@ -36,6 +36,7 @@
 					<li><a id="clickreg" href="../index.html#signup" class="tdn top-link">注册</a></li>
 				</ul> -->
 				<ul>
+					<li></li>
 					<li><a id="clickin" href="../login.html" class="mt5 r mr5"><img class="icon24" src="../images/sodagreen.jpeg" alt=""></a></li>
 					<li><span class="top-link">1230</span></li>
 				</ul>
@@ -44,7 +45,8 @@
 	</div>
 
 	<div class="wrapper">
-			<div class="sidebar">
+			<div class="sidebar" id="sidebar">
+				<div style="height:62px"></div>
 				<div class="tc mt10 mb10">
 						<div class="item-line">
 							<a href="about.html" class=""><img  class="icon icon100 circle" src="../images/img1.jpg" alt=""></a>
@@ -56,37 +58,58 @@
 							<div>杭州电子科技大学</div>
 						</div>
 						<div class="fc bb1">
-							<div class="column3 h50 vm">
-								<div>3
-								<br>
-								已完成</div>
-								<div class="bl1 br1" style="height:100%">1
-								<br>进行中</div>
-								<div>0
-								<br>未完成</div>
+							<div class="tab-nav h50 mt5">
+								<ul>
+									<li>
+									3
+									<br>	
+									已完成</li>
+									<li>
+									1
+									<br>
+									进行中</li>
+									<li>
+									0 
+									<br>
+									未完成</li>
+								</ul>
 							</div>
+
 						</div>
 						<div class="side-nav">
-							<ul>
-								<li><a href="#project" class="tdn nav-active">项目仓库</a></li>
-								<li><a href="#friend" class="tdn">我的朋友</a></li>
-								<li><a href="#edit" class="tdn">编辑信息</a></li>
-								<li><a href="#show" class="tdn">我的晒单</a></li>	
+							<ul id="side-nav">
+								<a href="#space" class="tdn"><li>个人主页</li></a>
+								<a href="#project" class="tdn"><li>项目仓库</li></a>
+								<a href="#friend" class="tdn"><li>我的朋友</li></a>
+								<a href="#edit" class="tdn"><li>编辑信息</li></a>
+								<a href="#show" class="tdn"><li>我的晒单</li></a>
 							</ul>
 						</div>
 				</div>
 			</div>
-			<div class="wrap content">
-				123
+			<div class="content w80p">
+				<div class="mt30 ml60" id="page-area">
+
+				</div>
 			</div>
 	</div>
 	
 	<script src="../lib/sea.js"></script>
 	<script>
-		seajs.use(["../scripts/main", "../scripts/util"],function(obj,util){
+	var $page;
+		seajs.use(["../scripts/main", "../scripts/page"],function(obj,page){
 			obj.popup(document.getElementById('clickin'));
-			$util = util;
+			$page = page.pageAjax;
 		});
+		var pageChange = function(){			
+			$page("page-area","space");
+		};
+		window.onload = pageChange;
+		window.onhashchange = pageChange;
+	</script>
+	
+	<script>
+	
 	</script>
 </body>
 </html>

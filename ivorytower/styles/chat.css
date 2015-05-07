@@ -1,0 +1,34 @@
+.sidebar{
+	width: 20%;
+	color: #666;
+}
+
+.side-nav li{
+	font-size: 13px;
+	overflow: hidden;
+	padding-left: 10%;
+	padding-right: 10%;	
+	text-align: left;
+}
+ 
+.side-nav li img{
+	margin-right: 10%
+}
+
+.title{
+	padding: 10px;
+	background: #eee;
+	font-weight: bolder;
+}
+textarea{
+	width: 100%;
+	border: 0;
+	overflow-y:hidden;
+	word-spacing: normal;
+}
+.bm{
+	border-bottom: 1px solid #ddd;
+}
+.bt{
+	border-top: 1px solid #ddd;
+}

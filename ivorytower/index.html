@@ -67,7 +67,7 @@
 					</ul>
 				</div>
 				<div class="form-view" data-role="student">
-					<form action="">
+					<form action="" name="student">
 							<input type="text" placeholder="用户名" autocomplete="off">
 							<input type="text" placeholder="请输入邮箱" autocomplete="off">	
 							<input type="text" placeholder="学历" autocomplete="off">
@@ -100,12 +100,21 @@
 
 	<script src="lib/sea.js"></script>
 	<script>
-		seajs.use("./scripts/main",function(obj){
+	var $page;
+		seajs.use(["./scripts/main","./scripts/page"],function(obj,page){
 			if(window.location.hash == "")
-						window.location.hash = "signin"
+						window.location.hash = "signin";
+			$page = page.pageBlock
 			obj.tab('signup','tab','role');
 			obj.popup(document.getElementById('clickin'));
 		});
+
+		var pageChange = function(){
+			$page("page-wrap","page");
+		};
+		window.onload = pageChange;
+		window.onhashchange = pageChange;
+	
 
 	</script>
 </body>

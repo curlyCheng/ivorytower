@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<title></title>
+	<link rel="stylesheet" href="../styles/reset.css">
+	<link rel="stylesheet" href="../styles/common.css">
+	<link rel="stylesheet" href="../styles/lib.css">
+	<link rel="stylesheet" href="../styles/public.css">
+	<link rel="stylesheet" href="../fonts/iconfont.css">
+	<link rel="stylesheet" href="../styles/chat.css">
+</head>
+<body style="overflow-x:hidden">
+	<div class="wrapper rel">
+			<div class="sidebar" id="sidebar">
+				<div class="tc">
+						<div class="title bm">好友列表</div>
+						<div class="side-nav">
+							<ul id="side-nav">
+								<li><img  class="icon icon24" src="../images/img1.jpg" alt=""><span>小明abs</span></li>
+								<li><img  class="icon icon24" src="../images/img1.jpg" alt=""><span>小李Ligoogoo</span></li>
+								<li><img  class="icon icon24" src="../images/img1.jpg" alt=""><span>小明abs</span></li>
+								<li><img  class="icon icon24" src="../images/img1.jpg" alt=""><span>小明abs</span></li>
+								<li><img  class="icon icon24" src="../images/img1.jpg" alt=""><span>小明abs</span></li>
+							</ul>
+						</div>
+				</div>
+			</div>
+			<div style="margin-left:20%;padding-left:1px;">
+				<div class="title bm" id="chatwith">小李Ligoogoo</div>
+				<div id="show-area">
+					aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+				</div>
+				<div class="input-area">
+					<div class="title bt bm"></div>
+					<textarea name="" id="input-area"></textarea>
+					<div class="title tr bt">
+					<a href="javascripts:;" class="btn h34 tc tdn w100 dib">发&nbsp;送</a>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+	<script src="../lib/sea.js"></script>
+	<script>
+		var resizeHeight = function(contentH){
+			var textarea = document.getElementById("input-area");
+			var content = document.getElementById("show-area");
+			var winHeight = window.innerHeight;
+			var otherH = winHeight-125;
+			if(contentH.indexOf("px") == -1){
+				content.style.height = (otherH * parseFloat(contentH)) + "px";
+			}else{
+				content.style.height = parseInt(contentH)+"px";
+			}
+			textarea.style.height = (otherH - parseInt(content.style.height)-12) + "px";
+		}
+		window.onload = resizeHeight("0.7")
+		window.onresize = function(){resizeHeight("0.7")}
+	</script>
+	<script>
+		var arrs = document.getElementById("side-nav").getElementsByTagName("li");
+		for(var i=0,len=arrs.length;i<len;i++)
+		{
+						
+		}
+	</script>
+
+</body>
+</html>
